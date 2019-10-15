@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>유효성 검증</title>
+    <script>
+        //유효성 검증
+        //1. Client 서버전송>>서버에서 검증>>검증 여부 Client 보낸다(ID 중복확인)
+        //2. Client에서 검증>>검증완료서버 전송>>서버 반영여부 Client 보낸다
+        //최대한 할수 있는 부분은 2번... 서버 전송 수 줄인다(POINT)
+
+        //2번 javascript 담당
+        //유효성 체크
+
+        //*********name="txtuserid" name속성이 없으면 서버는 값을 받지 못합니다*********
+        function send(){
+            //var element = document.forms[0].elements[0].value;
+            //form name 속성이 있다면
+            var inputuserid = document.loginform.txtuserid;
+            //inputuserid >> <input type="text" name="txtuserid">
+            console.log(inputuserid);
+            console.log(inputuserid.value);
+
+            //DOM Script
+            var userpwd = document.getElementById("txtpwd");
+            console.log(userpwd);
+            console.log(userpwd.value);
+
+            //검증( 여러분 원하는 코드..)
+            if(inputuserid.value == "" ||!(inputuserid.value.length >=3 && inputuserid.value.length<=10)){
+                alert("다시 입력해");
+                document.loginform.txtuserid.focus(); //inputuserid.focus()
+                inputuserid.select();
+            }else{
+                alert("검증완료");
+                //서버로 전송하는 코드...
+
+                document.loginform.action = "Ex09_login.jsp";
+                document.loginform.submit();//form >> sumbit() 내장
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="" method="GET" name="loginform">
+        ID:<input type="text" name="txtuserid"><br>
+        PWD:<input type="password" name="txtpwd" id="txtpwd"><br>
+        <input type="button" value="전송" onclick="send()">
+        <!--
+            type="submit"
+            type="image"
+            type="button" 별도의 함수가 필요 (함수 내부 submit)
+        -->
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>CSS 사용하기</title>
+	<style type="text/css">
+		/*
+			html 페이지에 Css 적용방법
+			1. inline (태그안에)
+			2. internal(page 상단)
+			3. external (별도의 파일 .css)
+			
+		*/
+		body{background-color: skyblue;}
+		h3{color: red;}
+	</style>
+	<link rel="stylesheet" href="C:\SmartWeb\Web\WebclientLabs\WebClient\WebContent\css\common.css">
+</head>
+<body>
+	<p style="background-color: pink">문단태그 입니다(in-line)</p>
+	<h3>internal 적용하기</h3>
+	<h3 style="color: green">적용방식은? 안쪽 우선...</h3>
+	<h3>external 방식</h3>
+	<h1>외부파일에서 참조합니다</h1>
+</body>
+</html>

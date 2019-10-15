@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var checkflag = false;//global (전역 : 현재페이지에서 사용가능)
+        function checkForm(){
+            var list = document.myform.list;
+            //list 타입 Array
+            //console.log(list);
+            //console.log(list.length);
+			if(!checkflag){
+				for(var index in list){
+					list[index].checked = true;
+	                //<input checked 부여
+				}
+				checkflag=true;
+				return "[선택해제하기]";
+			}else{
+				for(var index in list){
+					list[index].checked = false;
+	                //<input checked 부여
+				}
+				checkflag=false;
+				return "[전체선택]";
+            
+			}
+        }
+        
+        function checkForm2(list){
+            console.log(list);
+        }
+    </script>
+</head>
+<body>
+    <form action="" name="myform">
+        좋아하는 과목은:<br>
+        <input type="checkbox" name="list" value="java">JAVA<br>
+        <input type="checkbox" name="list" value="oracle">ORACLE<br>
+        <input type="checkbox" name="list" value="html">HTML<br>
+        <input type="checkbox" name="list" value="css">CSS<br>
+        <input type="checkbox" name="list" value="script">SCRIPT<br>
+        <input type="button" value="[전체선택]" onclick="this.value=checkForm()">
+        <br>
+        <input type="button" value="[전체선택]" onclick="this.value=checkForm2(this.form.list)">
+    </form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>내장함수</title>
+    <script>
+        var myTime = window.setInterval(function(){
+            //javscript 다양한 객체 ( DATE 객체)
+            //Date d = new Date();
+            var d = new Date();
+            var t = d.toLocaleTimeString();
+            //DOM script( 메모리 상에 만들어진 HTML 에 접근...)
+            document.getElementById("time").innerHTML=t;
+        }//익명함수, 1회성(재사용(x) )
+        ,1000)//1초마다 익명함수를 실행해라
+
+        function myTimeStop(){
+            window.clearInterval(myTime);
+        }
+        
+    </script>
+</head>
+<body>
+    <p id="time"></p>
+    <button onclick="myTimeStop()">stop time</button>
+    
+</body>
+</html>

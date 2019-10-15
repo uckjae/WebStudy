@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		table{width: 100%}
+		table,tr,th,td {border: 1px solid; border-collapse: collapse;}
+		td{background-color: gold; text-align: center;}
+	</style>
+	
+	<script type="text/javascript">
+			window.onload=function(){
+			var btnobj1 = document.getElementById("createTable");
+			
+			btnobj1.onclick=function(){
+				var rownum = document.getElementById("row").value;
+				console.log(rownum);
+				var colnum = document.getElementById("col").value;
+				console.log(colnum);
+				var index = 0;
+				if(rownum>=1 && colnum>=1){
+					var table = document.createElement("table");
+					for(var r=1; r<=rownum; r++){
+						var trow = document.createElement("tr");
+						
+						for(var c=1; c<=colnum;c++){
+							var tcol = document.createElement("td");
+							tcol.innerHTML= r+"행"+c+"열";
+							trow.appendChild(tcol);
+						}
+						table.appendChild(trow);
+					}
+					document.body.appendChild(table);
+				}
+				
+				
+				
+			}
+			var btnobj2 = document.getElementById("removeTable");
+			btnobj2.onclick=function(){
+				var table = document.tables[tables.length+1];
+				table.remove();
+			}
+			
+			
+		}
+	
+	
+	</script>
+</head>
+<body>
+	<p>행의수 : <input type="number" id="row" value=0></p>
+	<br>
+	<p>열의수 : <input type="number" id="col" value=0></p>
+	<input type="button" value="동적테이블생성" id="createTable">
+	<input type="button" value="동적테이블제거" id="removeTable">
+</body>
+</html>

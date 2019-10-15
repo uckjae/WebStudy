@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>javascript (문자열,숫자) 함수</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <script>
+        var str = "10+20+30";
+        document.write(str +"<br>");
+        //1.eval()
+        //문자형 수식을 계산 >>"10+20A+30" (x)
+        //문자형 숫자 -> 숫자
+        document.write("eval() " + eval(str) +"<br>");
+
+        //2. isNaN >> Not a Number ->true(너 숫자 아니니), false(숫자)
+        document.write(isNaN("12345") + "<br>");//false(숫자)
+        document.write(isNaN("12345A") + "<br>");//true(문자)
+        document.write(isNaN("대한민국") + "<br>");//true(문자)
+        document.write(isNaN('12345') + "<br>");//false(숫자)
+
+        //https://www.w3schools.com/jsref/jsref_obj_string.asp
+        //문자열 함수 학습하기
+
+        //https://www.w3schools.com/jsref/jsref_obj_number.asp
+        //숫자 함수 학습하기
+        /*
+        Number()	Returns a number, converted from its argument.
+        parseFloat()	Parses its argument and returns a floating point number
+        parseInt()	Parses its argument and returns an integer
+
+        */
+
+        var i ="100";
+        var j = "200";
+        document.write("결합 : " + (i+j));//java, javascript +(산술, 결합)
+        document.write("<br>숫자변환" + (Number(i) + Number(j)) + "<br>");
+
+        //javascript
+        /*
+        Event	Description
+        onchange	An HTML element has been changed
+        onclick	The user clicks an HTML element
+        onmouseover	The user moves the mouse over an HTML element
+        onmouseout	The user moves the mouse away from an HTML element
+        onkeydown	The user pushes a keyboard key
+        onload	The browser has finished loading the page
+        */
+
+        //onload="alert('finished HTML ELE loading\n the page')"
+        
+        /*
+
+        */
+
+        function focusFucntion(){
+            document.getElementById("myinput").style.background="yellow";
+        }
+
+        function blurFunction(){
+            document.getElementById("myform").style.background="red";
+        }
+        function selectTag(){
+            //onChange >> select 태그의 option 선택
+            alert(document.myform.sel.value);
+        }
+        //POINT (this 활용)
+        function changeColor(obj){
+            console.log(obj);//<input type="text"...
+            obj.style.backgroundColor="gold";//javascript css 적용
+            //style="backgroundColor:gold"
+        }
+        function changeColor2(obj){
+            console.log(obj);
+            obj.style.backgroundColor="white"
+        }
+    </script>
+</head>
+<body>
+    <form action="#" name="myform">
+        <input type="text" id="myinput" name="myinput" onfocus="focusFucntion()" onblur="blurFunction()">
+    
+    <select name="sel" onchange="selectTag()">
+        <option value="A">AA</option>
+        <option value="B">BB</option>
+        <option value="C">CC</option>
+    </select>
+    <hr>
+    <!--
+        **this POINT**
+        onmouseover="changeColor(this)"
+        this는 input type=text 태그를 의미
+    -->
+    <input type="text" onmouseover="changeColor(this)" onmouseout="changeColor2(this)">
+    <br>
+    <input type="text" onkeypress="alert('키보드 눌렸군')">
+    <br>
+    <input type="text" value="1000A" name="money">
+    </form>
+</body>
+    <script>
+        /*
+            아래코드는 onload 에서 실행
+            onload는 body안에 있는 모든 요소가 실행되고 나서
+        */
+        var data= document.myform.money.value;
+        document.write(isNaN(data) + "<br>");//true (문자입니다)
+    </script>
+</html>

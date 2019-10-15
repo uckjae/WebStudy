@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>사용자 정의 함수 : 내장함수</title>
+        <script>
+            //java : public void print(){}
+            //java : public String print(){retunr ""}
+            //java : public int print(int num, int num2){return num+num2}
+            
+            //jvascript
+            //function 함수이름(){} >> void(x) , return type(x)
+            
+            //함수는 반드시 호출에 의해서만 실행
+            function callComfirm(){//사용자 정의 함수
+                if(window.confirm("작업내용")){//confirm 내장함수 // 확인, 취소(true,false) 리턴
+                    window.alert("삭제합니다");
+                }else{
+                    alert("취소합니다")
+                }
+            }
+            
+            function showPopup(){//open() 내장함수
+                window.open("Ex06_popup.html","zipcode","width=200px, height=200px");
+                //https://www.w3schools.com/jsref/met_win_open.asp
+                //window.open(URL, name,specs,replace)
+                //window.close() > close the correct window
+                //spacs 브라우져마다 지원여부가 다르다
+                //specs : 주소창, 창의크기 옵션
+            }
+            function myFunction(){
+                var mywindow = window.open("Ex06_popup.html","MsgWindow","width=200px, height=200px");
+                //mywindow 현재 팝업창을 가르킨다
+                mywindow.document.write("<p>This is MsgWindow</p>")
+            }
+
+            //java : public String goUrlTime(String url){return ""}
+            function goUrlTime(url){//함수의 parameter 는 type를 가지지 않는다 :url (변수명)
+                window.setTimeout("location.href='"+url+"'",3000);
+
+                //location.href="http:www.daum.net" 이 코드가 실행되면 특정 url 로 이동
+                //우리사이트 공사중입니다.. 잠시후 이동...
+            }
+            //function 함수이름(a,b,c,d,e){}
+            function myfun(a,b){
+                return a+b;
+            }
+
+            var result=myfun(100,200);//script 내부에서 함수 호출
+            console.log("myfun : " + result);
+
+            //익명함수(함수의 주소를 리턴 객체...)
+            changeColor = function(){
+                window.document.bgColor="silver";
+                window.document.fgColor="red";
+            }
+        </script>
+</head>
+<body>
+    <h3>내장함수와 사용자 정의 함수 사용하기</h3>
+    <button onclick="callComfirm()">클릭사건 발생 (함수 호출)</button>
+    <br>
+    <button onclick="showPopup()">팝업창</button>
+    <br>
+    <button onclick="myFunction()">팝업객체</button>
+    <br>
+    <button onclick="goUrlTime('http://www.daum.net')">주소이동</button>
+    <br>
+    <button onclick="changeColor()">익명함수</button>
+</body>
+</html>
