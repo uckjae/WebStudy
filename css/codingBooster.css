@@ -14,15 +14,20 @@ a:hover{
 }
 /*네비게이션 영역 */
 .navbar-default{/*배경색상*/
-    background-color: #000000;
-    border-color: #000000;
+    background-color: #3c2050;
+    border-color: #3c2050;
 }
-.navbar-default .navbar-brand:hover{/*네비게이션 제목 색상*/
+
+.navbar-default .navbar-brand{/*네비게이션 제목 색상 마우스를 올렸을 때*/
     color: #ffffff;
 }
-.navbar-default .navbar-brand:focus{/*네비게이션 제목에 마우스를 올렸을 때*/
+
+.navbar-default .navbar-brand:hover{/*네비게이션 제목 색상 마우스를 올렸을 때*/
+    color: #f5f820;
+}
+.navbar-default .navbar-brand:focus{/*네비게이션 제목색상 */
     background-color: transparent;
-    color: #bbbbbb;
+    color: #ffffff;
 }
 
 .navbar-default .navbar-nav > .active > a,
@@ -34,14 +39,14 @@ a:hover{
 
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus{/*네비게이션 글자에 마우스 올렸을때*/
-    color: #bbbbbb;
+    color: #f5f820;
   
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus{/*드랍다운이 열렸을때 마우스 색상 이벤트*/
-    color: #000000;
-    background-color: #ffffff;
+    color: #f5f820;
+    background-color: #3c2050;
     text-decoration: none;
   
 }
@@ -50,7 +55,7 @@ a:hover{
 }
 @media (max-width:767px){
     .navbar-default .navbar-nav .open .dropdown-menu > li > a{
-        color: #ffffff;
+        color: #f5f820;
     }
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus{
