@@ -1,7 +1,7 @@
 /*전체영역을 통틀어 스타일 정의*/
-@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap');
 *{
-    font-family: 'Nanum Gothic';
+    font-family: 'Noto Serif KR', serif;
 }
 a{
     color: #000000;
@@ -14,8 +14,8 @@ a:hover{
 }
 /*네비게이션 영역 */
 .navbar-default{/*배경색상*/
-    background-color: #3c2050;
-    border-color: #3c2050;
+    background-color: #3c4245;
+    border-color: #3c4245;
 }
 
 .navbar-default .navbar-brand{/*네비게이션 제목 색상 마우스를 올렸을 때*/

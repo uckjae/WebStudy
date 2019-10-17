@@ -1,135 +1,209 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Personal Page</title>
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/codingBooster.css">
-    </head>
-    <body>
-        <style type="text/css">
-            .jumbotron{
-                
-                text-shadow: black 0.2em;
-                color: white;
-            }
-        </style>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index1.html">Main</a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="index1.html">소개</a></li>
-                        
-                        <li class="dropdown">
-                            <a href="lecture.html" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                            aria-haspopup="true" aria-expanded="false">취미<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="lecture.html?lectureName=C">스쿼시</a></li>
-                                <li><a href="lecture.html?lectureName=Java">게임</a></li>
-                                <li><a href="lecture.html?lectureName=Android">안드로이드</a></li>
-                            </ul>
-                        </li>
 
-                    </ul>
-                    <form class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <input type="text" class="form-control placeholder="내용을 입력하세요.">
-                            <button type="button" class="btn btn-default" onclick="alert('아직 못만들었어요')">검색</button>
-                        </div>
-                    </form>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                            aria-haspopup="true" aria-expanded="false">접속하기<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                    <li><a href="loginForm.html">로그인</a></li>
-                                    <li><a href="registerForm.html">회원가입</a></li>
-                                </ul>
-                    </ul>
-                </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Personal Page</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/codingBooster.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index1.html">Main</a>
             </div>
-        </nav>
-        <div class="container">
-            <div class="row">
-                <ul>
-                    <a href="#" class="list-group-item active">1강 hello world</a>
-                    <a href="#" class="list-group-item">2강 변수와상수</a>
-                    <a href="#" class="list-group-item">3강 데이터 타입</a>
-                    <a href="#" class="list-group-item">4강 조건문과 반복문</a>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="index1.html">소개</a></li>
+
+                    <li class="dropdown">
+                        <a href="lecture.html" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false">취미<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="lecture.html#C">스쿼시</a></li>
+                            <li><a href="lecture.html#D">게임</a></li>
+                            <li><a href="lecture.html#F">축구경기시청</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control placeholder=" 내용을 입력하세요.">
+                        <button type="button" class="btn btn-default" onclick="alert('아직 못만들었어요')">검색</button>
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">접속하기<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="loginForm.html">로그인</a></li>
+                            <li><a href="registerForm.html">회원가입</a></li>
+                        </ul>
                 </ul>
             </div>
-            <div class="row">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/rkTQj1vdjC0"></iframe>
-                </div>
+        </div>
+    </nav>
+
+    <div class="container" id="C">
+        <h3 style="background-color: #5f6769;color: #e3e7f1;height: 70px;padding-top: 18px;padding-left: 20px;">Squash</h3>
+        <hr>
+        <div class="row" >
+            <div class="col-sm-6">
+                <img src="images/court.jpg" width="100%" >
+
+            </div>
+            <div class="col-sm-6">
+                <h4 >스쿼시란</h4>
+                <p>스쿼시(squash)는 2명(단식) 또는 4명(복식)의 선수가 사방이 투명한 벽으로 이루어진 코트에서 
+                    작고 속이 빈 고무공으로 경기를 하는 라켓 스포츠이다. 과거에는 스쿼시 라켓(squash rackets)라고 불렸는데, 
+                    이는 스쿼시의 전신이 되는 옛 실내 라켓 경기인 '라켓'(또는 하드 라켓)이 딱딱한 공을 사용했던 것에 비해 스쿼시에서는 잘 '찌그러지는(squashable)' 말랑말랑한 공을 사용함을 가리키는 의미의 명칭이었다.
+                    벽에다가 공을 치고 튕기는 공을 주고 받는 게임이다보니 상대방이 치기 어려운 곳으로 보내는 것이 관건.</p>
             </div>
         </div>
-        
-        <footer style="background-color: #3c2050; color: #ffffff;">
-            <div class="container">
-                <br>
-                <div class="row">
-                    <div class="col-sm-2" style="text-align: center;"><h5>Copyright &copy;2019</h5><h5>이욱재</h5></div>
-                    <div class="col-sm-4" ><h4>대표자소개</h4><p>Bit컴퓨터 2차 2조 이욱재 입니다</p></div>
-                    <div class="col-sm-2"><h4 style="text-align: center;">내비게이션</h4>
-                        <div class="list-group">
-                            <a href="#" class="list-group-item">소개</a>
-                            <a href="#" class="list-group-item">취미</a>
-                        </div>
-
-                    </div>
-                    <div class="col-sm-2"><h4 style="text-align: center;">SNS</h4>
-                        <div class="list-group">
-                            <a href="https://www.instagram.com/?hl=ko" class="list-group-item">InstarGram</a>
-                            <a href="https://ko-kr.facebook.com/" class="list-group-item">Facebook</a>
-                            <a href="https://github.com/uckjae" class="list-group-item">GitHub</a>
-                        </div>
-
-                    </div>
-                    <div class="col-sm-2"><h4 style="text-align: center;"><span class="glyphicon glyphicon-ok"></span>&nbsp;by 이욱재</h4></div>
-                </div>
-            </div>
-        </footer>
         <div class="row">
-            <div class="modal" id="modal" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            코드부스터의 특징
-                            <button class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <div class="modal-body" style="text-align: center;">
-                            안촉촉한 나라의 안촉촉한 초코칩이<br>
-                            촉촉한 초코칩이 되고 싶어서<br><br>
-                            <img src="images/youtube.png" id="imagepreview" style="width: 256px; height: 256px;">
-                        </div>                       
+            <div class="col-sm-6">
+                <h4>스쿼시의 매력</h4>
+                <ul>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="col-sm-6">
+                
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/eIjFVTgFSdQ"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label>댓글</label>
+                <textarea class="form-control" rows="5" id="commentContent" name="comentContent"></textarea>
+                <br>
+                <button type="submit" class="btn pull-right" onclick="alert('서버가없어서...')">등록</button>
+
+            </div>
+        </form>
+    </div>
+    <div class="container" id="D">
+        <div class="row">
+            <ul>
+                <a href="#" class="list-group-item active">1강 hello world</a>
+                <a href="#" class="list-group-item">2강 변수와상수</a>
+                <a href="#" class="list-group-item">3강 데이터 타입</a>
+                <a href="#" class="list-group-item">4강 조건문과 반복문</a>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/rkTQj1vdjC0"></iframe>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <p>
+                첫번째 간장공장공장장
+            </p>
+            <pre class="pre-scrollable">
+    #include &ltstdio.h&gt
+    int main(void){
+    printf("Hello World!");
+    }
+                    </pre>
+        </div>
+    </div>
+    <div class="container">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label>댓글</label>
+                <textarea class="form-control" rows="5" id="commentContent" name="comentContent"></textarea>
+                <br>
+                <button type="submit" class="btn pull-right" onclick="alert('서버가없어서...')">등록</button>
+
+            </div>
+        </form>
+    </div>
+    <footer style="background-color: #3c2050; color: #ffffff;">
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-sm-2" style="text-align: center;">
+                    <h5>Copyright &copy;2019</h5>
+                    <h5>이욱재</h5>
+                </div>
+                <div class="col-sm-4">
+                    <h4>대표자소개</h4>
+                    <p>Bit컴퓨터 2차 2조 이욱재 입니다</p>
+                </div>
+                <div class="col-sm-2">
+                    <h4 style="text-align: center;">내비게이션</h4>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">소개</a>
+                        <a href="#" class="list-group-item">취미</a>
+                    </div>
+
+                </div>
+                <div class="col-sm-2">
+                    <h4 style="text-align: center;">SNS</h4>
+                    <div class="list-group">
+                        <a href="https://www.instagram.com/?hl=ko" class="list-group-item">InstarGram</a>
+                        <a href="https://ko-kr.facebook.com/" class="list-group-item">Facebook</a>
+                        <a href="https://github.com/uckjae" class="list-group-item">GitHub</a>
+                    </div>
+
+                </div>
+                <div class="col-sm-2">
+                    <h4 style="text-align: center;"><span class="glyphicon glyphicon-ok"></span>&nbsp;by 이욱재</h4>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="row">
+        <div class="modal" id="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        코드부스터의 특징
+                        <button class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="text-align: center;">
+                        안촉촉한 나라의 안촉촉한 초코칩이<br>
+                        촉촉한 초코칩이 되고 싶어서<br><br>
+                        <img src="images/youtube.png" id="imagepreview" style="width: 256px; height: 256px;">
                     </div>
                 </div>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script src="js/bootstrap.js"></script>
-    </body>
-    <script>
-        var photos =["images/thumsup.jpg","goodluck.jpg","strickserious.jpg"];
-        var index=0;
-        console.log(document.getElementsByClassName("jumbotron")[0]);
-        document.getElementsByClassName("jumbotron").onclick=function(){
-            if(++index==2){
-                index=0
-            }
-            document.getElementsByClassName("jumbotron")
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+</body>
+<script>
+    var photos = ["images/thumsup.jpg", "goodluck.jpg", "strickserious.jpg"];
+    var index = 0;
+    console.log(document.getElementsByClassName("jumbotron")[0]);
+    document.getElementsByClassName("jumbotron").onclick = function () {
+        if (++index == 2) {
+            index = 0
         }
-    </script>
+        document.getElementsByClassName("jumbotron")
+    }
+</script>
+
 </html>
