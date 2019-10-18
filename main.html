@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <style>
+        img {
+            display: block;
+            margin: 0px auto;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#myPage" style="letter-spacing: 0.3em;">Ukjae's Page</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hobbies
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#squash">Squash</a></li>
+                            <li><a href="#arsenal">Arsenal</a></li>
+                            <li><a href="#gourmet">Gourmet</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Contact
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">GitHub</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <div id="mypage" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#mypage" data-slide-to="0" class="active"></li>
+            <li data-target="#mypage" data-slide-to="1"></li>
+            <li data-target="#mypage" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="images/goodluck2.jpg" alt="myson_newyesr" width="1200" height="700">
+
+            </div>
+
+            <div class="item">
+                <img src="images/thumbsup2.jpg" alt="myson_thimsup" width="1200" height="700">
+
+            </div>
+
+            <div class="item">
+                <img src="images/strickserious2.jpg" alt="myson_stric" width="1200" height="700">
+
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div id="introduction" class="container text-center">
+        <h3>Introduction</h3>
+        <h4 style="margin-top: 30px;margin-bottom: 15px;">Who am I?</h4>
+        <ul style="list-style-type: none; font-family: cursive; padding-left: 0px;">
+            <li>Birth : 1990</li>
+            <li>Marry : 2017</li>
+            <li onclick="alert('Wow It is So Fast!!')">Getting Son: 2017</li>
+        </ul>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-4">
+            <p class="text-center"><strong>Me</strong></p>
+            <br>
+            <a href="#demo" data-toggle="collapse">
+                <img src="images/me1.jpg" class="img-circle person" alt="Ukjae" width="255" height="255">
+            </a>
+            <div id="demo" class="collapse">
+                <hr>
+                <p class="text-center">The Only Student who get married</p>
+                <p class="text-center">My Holiday is not a Holiday</p>
+                <p class="text-center">Happy Guy</p>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <p class="text-center"><strong>MyWife</strong></p>
+            <br>
+            <a href="#demo2" data-toggle="collapse">
+                <img src="images/mywife.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+            </a>
+            <div id="demo2" class="collapse">
+                <hr>
+                <p class="text-center">Beauty</p>
+                <p class="text-center">Preety</p>
+                <p class="text-center">Match Made in Heaven</p>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <p class="text-center"><strong>MySon</strong></p>
+            <br>
+            <a href="#demo3" data-toggle="collapse">
+                <img src="images/sonface.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+            </a>
+            <div id="demo3" class="collapse">
+                <hr>
+                <p class="text-center">Cute</p>
+                <p class="text-center">Loves Pororo</p>
+                <p class="text-center"><a data-target="#modal" data-toggle="modal">Loves Dance</a></p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <div class="container" id="squash">
+        <h3 class="text-center">Squash</h3>
+        <br>
+        <div class="row">
+            <div class="col-sm-6"><img src="images/court.jpg" width="100%"></div>
+            <div class="col-sm-6">
+                <p style="line-height: 2em; overflow: auto; height: 228.567px;">
+                    스쿼시(squash)는 2명(단식) 또는 4명(복식)의 선수가 사방이 투명한 벽으로 이루어진 코트에서
+                    작고 속이 빈 고무공으로 경기를 하는 라켓 스포츠이다.<br> 과거에는 스쿼시 라켓(squash rackets)라고 불렸는데, 
+                    이는 스쿼시의 전신이 되는 옛 실내 라켓 경기인 '라켓'(또는 하드 라켓)이 딱딱한 공을 사용했던 것에 비해 
+                    스쿼시에서는 잘 '찌그러지는(squashable)' 말랑말랑한 공을 사용함을 가리키는 의미의 명칭이었다.<br>
+                    벽에다가 공을 치고 튕기는 공을 주고 받는 게임이다보니 상대방이 치기 어려운 곳으로 보내는 것이 관건.</p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <div class="row">
+            <div class="col-sm-6">
+                <ul>
+                    <h5>Attractions of Squash</h5>
+                    <li>The most calorie consuming sports</li>
+                    <li>Great hitting sound</li>
+                    <li>Squash court is the place where I met my wife firstly.</li>
+                </ul>
+            </div>
+            <div class="col-sm-6">
+                <ul>
+                    <h5>Helpful Links</h5>
+                    <li><a href="https://www.squash.pe.kr/">Finding Squash Court</a></li>
+                    <li><a href="https://www.facebook.com/uosbust/videos/vb.1692750920972501/1738227186424874/?type=2&theater">Basic Lesson</a></li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <div class="row text-center">
+            <h3>Squash Game</h3>
+            <br>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/eIjFVTgFSdQ" style="width: 100%;"></iframe>
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <hr>
+    <div class="row" id="arsenal">
+        <h3 style="text-align: center;">Arsenal</h3>
+        <br>
+        <div class="col-sm-4">
+            <img src="images/arsenal_logo.png" alt="arsenal_logo" style="padding-left: 30px;" width="100%">
+        </div>
+        <div class="col-sm-8"">
+            <iframe src="https://www.arsenal.com/" width="100%"></iframe>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="modal" id="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        Lee JeongHyeon's Dance
+                        <button class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <video class="video-fluid" width="auto" controls>
+                            <source src="images/dance.mp4" type="video/mp4">
+
+
+                        </video>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center">
+        <a class="up-arrow" href="#mypage" data-toggle="tooltip" title="TO TOP">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+        </a><br><br>
+        <p>Personal Page by Ukjae <a href="https://www.w3schools.com" data-toggle="tooltip" >192.168.0.76:8090</a></p> 
+    </footer> 
+</body>
+
+</html>
