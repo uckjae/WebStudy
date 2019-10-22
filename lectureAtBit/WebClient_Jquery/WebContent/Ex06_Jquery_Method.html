@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style type="text/css">
+	.redcolor{color:red}
+	.yellowcolor{color:yellow}
+	.bluecolor{color:blue}
+</style>
+<script type="text/javascript">
+	/*
+	addClass() - Adds one or more classes to the selected elements
+	removeClass() - Removes one or more classes from the selected elements
+	toggleClass() - Toggles between adding/removing classes from the selected elements
+	css() - Sets or returns the style attribute
+	*/
+	$(function(){
+		$('td:contains("홍길동")').addClass('redcolor');
+		//addClass 만들어진  Css 요소에 적용하기
+		$('td:contains("홍길동")').siblings()
+		.addClass('bluecolor')
+		.parent()
+		.find("td:eq(0)")
+		.addClass('yellowcolor');
+	
+	
+	$('#btnclick').on('click',function(){
+		alert('click');
+	});
+	$('#btnclick').on('mouseover',function(){
+		document.getElementById("btnclick").style.backgroundColor("red");;
+	});
+	
+	$('#btnclick').on('mouseout',function(){
+		document.getElementById("btnclick").style.backgroundColor("white");;
+	});
+	
+	//stylediv 라는 id 가진 div 2개의 이벤트를거세요
+	//mouseover > 위에서 만든 greencolor 스타일 적용
+	//mouseout > 위에서 만든 bluecolor 스타일 적용
+	//단 json 형태로
+	
+	$('#stylediv').on({
+		mouseover:function(){$(this).addClass('yellowcolor')},
+		mouseout:function(){$(this).removeClass('yellowcolor');
+							$(this).addClass('bluecolor');						
+		}
+	})
+	
+	
+	
+	
+	});
+	
+</script>
+</head>
+<body>
+
+	<table>
+		<tr>
+			<td>이름</td>
+			<td>나이</td>
+			<td>취미</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>50</td>
+			<td>훔치기</td>
+		</tr>
+		<tr>
+			<td>이순신</td>
+			<td>10</td>
+			<td>싸움</td>
+		</tr>
+		<tr>
+			<td>학생</td>
+			<td>20</td>
+			<td>잠자기</td>
+		</tr>
+		
+		
+	</table>
+	
+		<h3>이벤트</h3>
+		<a href="http://www.naver.com">네이버 바로가기</a>
+		<hr>
+		<div id="btnclick">click</div>
+		<div id="btnclick2">click2</div>
+		<div id="stylediv">click3</div>
+
+</body>
+</html>

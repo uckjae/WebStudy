@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+/*
+ 	MouseEvents	KeyboardEvents	FormEvents	Document/Window Events
+	click		keypress		submit		load
+	dblclick	keydown			change		resize
+	mouseenter	keyup			focus		scroll
+	mouseleave					blur		unload 
+ 
+ */
+ 
+ $(document).ready(function() {
+	 $('body').click(function () {
+		 /* let data = $('#txtuserid').val();
+		$('#txtcopyuserid').val(data); */
+		 $('#txtcopyuserid').val($('#txtuserid').val());
+	});
+	//onchange > change
+	//input value='값'> >>value : <p>값</p>, <div>값</div> >> text
+	//vla() (getter)
+	$('#select_hobby').change(function(){
+		let text = $(':selected').text();//[body 안에 select 태그 1개 존재]
+		let text1 = $('#select_hobby option:selected').text();
+		let val = $('#select_hobby').val(); //value 속성이 없으면 text value 인정
+		//$('#txtselect').val(text + "/" + text2 +"/" val);
+	});
+	
+	//txtpwd2 >> keyup 되었을때 txtpwd값을 비교해서
+	//암호가 같으면 id="message" text 암호가 일치합니다
+	//일치하지 않으면 text 암호가 일치하지 않습니다
+	$('#txtpwd2').keyup(function(){
+		let confirmmessage="";
+		if($('#txtpwd2').val()==$('#txtpwd').val()){
+			confirmmessage = "text 암호가 일치합니다";
+		}else{
+			confirmmessage = "text 암호가 일치하지 않습니다";
+		}
+		$('#message').text(confirmmessage);
+	});
+	
+	$('input').focus(function(){
+		//$(this): 현재 focus를 가지고 있는 input태그
+		$(this).css('background-color','gray');
+	});
+	$('input').blur(function(){
+		//$(this): 현재 focus를 가지고 있는 input태그
+		$(this).css('background-color','white');
+	});
+	
+	//하나의 이벤트가 함수를 여러개 (두개) 가질수 있다
+	$('p').hover(function(Event) {
+		$(this).css('background-color','yellow');
+	}, function(Event) {
+		$(this).css('background-color','pink');
+	})
+ });
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+	<p>Jquery hover(mouseover,mouseleave)</p>
+	
+	ID:<input type="text" id="txtuserid">
+	<hr>
+	<input type="button" id="btncopy" value="copy">
+	<hr>
+	Copy ID:<input type="text" id="txtcopyuserid">
+	<hr>
+	<select id="select_hobby">
+		<option value="JAVA">java</option>
+		<option >script</option>
+		<option >jdbc</option>
+	</select>
+	<br>
+	<input type="text" id="txtselect">
+	<p id="message"></p>
+	<hr>
+	<table style="border: 1px solid red">
+		<tr>
+			<td>암호</td>
+			<td>
+				<input type="text" id="txtpwd" size="20" maxlength="5">
+			</td>
+		</tr>
+		<tr>
+			<td>암호확인</td>
+			<td>
+				<input type="text" id="txtpwd2" id="txtcopypwd" size="20" maxlength="5">
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

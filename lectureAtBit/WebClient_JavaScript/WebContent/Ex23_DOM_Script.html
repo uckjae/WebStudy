@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var menode;
+			menode = document.getElementById("me");
+			menode.style.backgroundColor="yellow";//style=
+			
+			var parentnode = menode.parentNode;//body
+			parentnode.style.backgroundColor="skyblue";
+			
+			var grandnode;
+			grandnode = parentnode.parentNode;
+			grandnode.style.backgroundColor="green";
+			
+			var my = document.getElementById("mychild");
+			console.log(my);
+			console.log(my.firstChild.nodeName);//태그이름 LI
+			console.log(my.firstChild.innerText);//li, div, p value가 없어요
+			console.log(my.firstChild.nextSibling.innerText);
+			console.log(my.childNodes);
+			console.log(my.childNodes.length);
+			console.log(my.lastChild.innerText);
+			for(var index in my.childNodes){
+				var text = my.childNodes[index].innerText;
+				console.log(index);
+				console.log("text : " + text);
+			} 
+			for(var i=0; i<my.childNodes.length;i++){
+				console.log(i);
+				var text = my.childNodes[i].innerText;
+				console.log(text);
+			}
+			
+			
+		}
+	</script>
+</head>
+<body>
+<div>A</div><div>B</div><div id="me">C</div><div>D</div><div>E</div>
+<ul id="mychild"><li>AA</li><li>BB</li><li>CC</li></ul>	
+</body>
+</html>

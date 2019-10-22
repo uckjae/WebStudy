@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		/*  
+			JAVA : for(String str : 배열(Collection){}
+		    
+			JavaScript : for(let index in Array ){ Array[index] }
+			JavaScript(Object:json) : for(let key in Object(json) ) { } 
+			console.log("key :" + key + "=" + Object[key]);
+			
+			Jquery : each() 반복구문
+			
+			Jquery : Ajax 처리 구문 ...화면 구성
+			1.  $(selector).each(function(){this});
+			2.  $(selector).each(function(index){this});
+			3.  $(selector).each(function(index,element){element}); 70%
+			
+		    *selector 없는 each()
+			1. $.each(selector , function(){this});
+			2. $.each(selector , function(index){this});
+			3. $.each(selector , function(index,element){element}); 70%
+			
+			selector 가 JSON 객체
+			var obj = {name:"홍길동",age:100}
+			$(obj).each(function(key,value){})
+			
+		*/
+		$(function(){
+			//$(selector).each(function(){this});
+			$('p').each(function() { //3번 호출(p 개수 재귀호출 : callback 함수)
+				console.log("this : " + $(this).text());
+				//this >> p태그
+			});
+			
+			//$(selector).each(function(index){this});
+			$('p').each(function(index) {
+				console.log("index : " + index);
+				console.log("this : " + $(this).text());
+				
+				//$(this).attr("id" , "param-"+index)
+				//다수의 p 태그 같은 속성을 부여 (id 충돌)
+				//$(this).attr("id","param-"+index);
+				
+				//속성을 여러개 : json 객체 (parameter ******)
+				$(this).attr(
+				 	{
+						"id":"param-"+index,
+						"style":"color:red" 
+				 	}		
+				);
+			});
+			
+			//$(selector).each(function(index,element){element}); 
+			//가장 편한 방식
+			$('p').each(function(index, element) {
+				console.log("index : " + index);
+				//element >> <p>java</p>
+				console.log("element : " + element + " / " + $(element).text());
+			});
+			
+			$('#btn').click(function(){
+				alert($('#param-1').text());
+			});
+			
+			/*
+			응용학습
+			javascript
+			var arr=['사과,'배','수박']
+			var obj={}
+			객체배열
+			var arrobj=[{},{},{}]
+			
+			*/
+			var array=[
+				{"name":"naver", "link":"www.naver.com"},
+				{"name":"daum", "link":"www.daum.com"},
+				{"name":"bit", "link":"www.bit.com"},
+			]
+			//문제 : name 값, link 값 을 출력
+			//객체:$(obj).each(function(key,value){})
+			//배열:$(selector).each(function(index,element){element});
+			$(array).each(function(index,element){
+				console.log("element2 : " + element)
+				$(element).each(function(key,value){
+					console.log("key2 : " + key);
+					console.log("value2 : " + value);
+				})
+			});
+			
+			$.each(array,function(index,element){
+				console.log(element);
+				console.log(element.name+"/"+element.link);
+			});
+				
+		//$(selector).each(function(index,element){element})
+		//body 안에 태그정보
+		//$.each(selector,function(index,element){element});
+		//script 내부에 있는 배열, 객체
+		
+		let board={
+				values:[
+					{no:1,title:"hello world"},
+					{no:2,title:"world korea"},
+					{no:3,title:"bit camp"},
+				],
+				search:"검색"
+		}
+		//1.$.each() 사용해서 no값, title 값을 출력하세요
+		$.each(board.values, function(index, element) {
+			console.log(index+"/"+element.no+"/"+element.title);			
+		});
+		//2.$.each(board) >> key value
+		$.each(board,function(key,value){
+			console.log(key+"/"+value);
+		});
+		
+		//3. $.each() no title search 값을 출력
+		$.each(board,function(key,value){
+			if(typeof(value)=="object"){
+				$.each(value,function(index,element){
+					console.log(element.no+"/"+element.title);
+				});
+			}else{
+				console.log(value);
+			}
+		})
+		
+		});
+	</script>
+</head>
+<body>
+	<p>java</p>
+	<p>jsp</p>
+	<p>oracle</p>
+	<input type="button" value="click" id="btn">
+</body>
+</html>

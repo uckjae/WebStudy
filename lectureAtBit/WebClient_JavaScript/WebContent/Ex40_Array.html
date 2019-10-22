@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Array</title>
+	<script type="text/javascript">
+		//javascript Array : 정적 + Collection
+		//Java : int[] arr = {10,20,30}; 고정배열 (정적)
+		//Java : Collection >> ArrayList list = new ArrayList();
+		//list.add() , list.get() ....
+		
+		var array = ['포도','사과'];
+		document.write(array.toString() + "<br>");
+		document.write(array + "<br> toString() default<br>");
+		
+		for(var i = 0 ; i < array.length ; i++){
+			document.write(array[i] + "<br>");
+		}
+		
+		//동적기능 : 
+		//array[0] >> 포도 , array[1] >> 사과
+		//방은 2개
+		array[2] = "바나나"; //동적 처리 ******
+		document.write(array.toString() + " / " + array.length +"<br>");
+		
+		array[10] = "애플망고";
+		document.write(array.toString() + " / " + array.length +"<br>");
+		document.write(array[9]+" / "+array.length +"<br>");
+		//공간은 있는데 정의된것이 없다
+		array[9]="배";//초기화
+		document.write(array[9]+" / "+array.length +"<br>");
+		
+		var array2=["one","two","there"];
+		document.write(array2.length +"<br>");
+		array2.length=2;//강제로(위험)
+		for(var index in array2){
+			document.write(array2[index] + "<br>");
+		}
+		array2.length=4;
+		document.write(array2.toString() + " / " + array2.length + "<br>");
+		document.write(array2[2] +"<br>");
+		
+		//POINT (Stack 구조)
+		array2.push("Four");
+		document.write("push : " + array2.toString() +"<br>");
+		document.write(array2.pop() +"<br>");
+		document.write(array2.pop()+"<br>");
+		
+		//배열선언시에...
+		var list=[];
+		list.push("A");
+		list.push("B");
+		list.push("C");
+		list.push("D");
+		document.write(list.pop());
+		
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>
