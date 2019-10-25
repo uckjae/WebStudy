@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<style type="text/css">
+	
+	
+	</style>
+	<!-- 
+		날짜 형식 : yy-mm-dd
+	 -->
+	<script type="text/javascript">
+		$(function(){
+			  $( "#datepicker" ).datepicker(
+				{
+					dateFormat: "yy-mm-dd",
+					numberOfMonths: 2,
+					onSelect: function(date){ //api OPTION
+						alert("onSelect : " + date);
+					},
+					onClose: function(date){
+						var currentdate = $('#datepicker').datepicker('getDate');
+						console.log(currentdate + " , " + date);
+						var date = new Date(currentdate);
+						alert(date.getFullYear() + " : " + date.getDate());
+						
+					}
+				}	  
+			  );
+		});		
+	</script>
+</head>
+<body>
+	<p>Date: <input type="text" id="datepicker"></p>
+</body>
+</html>

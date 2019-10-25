@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+		/* 
+		 1. XMLHttpRequest 객체 얻기
+  		 2. onreadystatechange 이벤트 핸들러 구현 (함수 (callback))
+  		 3. 요청 정보 ( open() )
+  	     4. 요청 보내기 (send() )
+         5. 응답 처리 (Text(JSON), xml )
+		
+		*/
+
+        var httpReq = null;
+
+        function getInstance() {
+            if (window.XMLHttpRequest) {
+                httpReq = new XMLHttpRequest(); //모든 브라우져 > XMLHttpRequest
+            } else if (window.ActiveXObject) {
+                httpReq = new ActiveXObject("Msxml2.XMLHTTP");
+            } else {
+                throw new Error("AJAX 지원하지 않습니다");
+            }
+            return httpReq;
+        }
+
+        function HandlerStateChange() {
+            //alert(httpReq.readyState)
+            if (httpReq.readyState == 4) {
+                if (httpReq.status >= 200 && httpReq.status < 300) {
+
+                    //처리 코드 (가공 사용자 마음)
+                    //Text (text , html , json)
+                    //XML
+                    var data = JSON.parse(httpReq.responseText);
+                    var info = data.FemailSafetyCustodyBox[1].row;
+                    chagenTable(info);
+                }
+            }
+        }
+
+        var tableName = "testTable";
+        function chagenTable(info) {
+
+            if ($('#testTable') != null) {
+                $('#testTable').remove();
+            }
+            
+            var target = [];
+            target = info
+
+            var headers = ["시설명", "소재지도로명주소", "칸 개수", "데이터기준일자"];
+            var table = document.createElement("table");
+            table.setAttribute("id", tableName);
+            table.setAttribute("class", "table table-hover");
+            for (var i = 0; i < target.length; i++) {
+                var tr = document.createElement("tr");
+                var innerEle = "";
+                var text = "";
+                if (i === 0) {
+                    tr.setAttribute("class", "table-primary");
+                    innerEle = "th";
+                    for (var j = 0; j < headers.length; j++) {
+                        var td = document.createElement(innerEle);
+                        td.innerHTML = headers[j];
+                        tr.appendChild(td);
+                    }
+                    table.appendChild(tr);
+                    document.body.appendChild(table);
+                    tr = document.createElement("tr");
+                }
+                innerEle = "td";
+                var td1 = document.createElement(innerEle);
+                td1.innerHTML = target[i].FACLT_NM;
+                tr.appendChild(td1);
+                var td2 = document.createElement(innerEle);
+                td2.innerHTML = target[i].REFINE_ROADNM_ADDR;
+                tr.appendChild(td2);
+                var td3 = document.createElement(innerEle);
+                td3.innerHTML = target[i].SPACE_CNT_INFO.replace("01/", "소형:").replace("01/", "소형:").replace("02/", "중형:").replace("03/", "중소형:").replace("04/", "제어부:").replace("05/", "구급함:").replace("+", " & ").replace("+", " & ").replace("+", " & ").replace("+", " & ");
+                tr.appendChild(td3);
+                var td4 = document.createElement(innerEle);
+                td4.innerHTML = target[i].DATA_STD_DE;
+                tr.appendChild(td4);
+                table.appendChild(tr);
+            }
+            $('#forTable').append(table);
+        }
+        function sendData(sigun) {
+            httpReq = getInstance();
+            httpReq.onreadystatechange = HandlerStateChange; //(x)
+            httpReq.open("POST", "https://openapi.gg.go.kr/FemailSafetyCustodyBox?Key=a5a71c6d047247aeb1c3d1465192c52b&Type=json&pIndex=1&pSize=1000&SIGUN_NM=" + sigun);//준비  jsp?id=0
+            httpReq.send();
+        }
+    </script>
+</head>
+
+<body>
+    <select class="form-control" id="sel" name="sel" onchange="sendData(this.value)">
+        <option value="선택하시오">선택하시오</option>
+        <option value="의정부시">의정부시</option>
+        <option value="구리시">구리시</option>
+        <option value="평택시">평택시</option>
+        <option value="수원시">수원시</option>
+        <option value="과천시">과천시</option>
+        <option value="양주시">양주시</option>
+        <option value="고양시">고양시</option>
+        <option value="광명시">광명시</option>
+        <option value="의왕시">의왕시</option>
+        <option value="화성시">화성시</option>
+    </select>
+    <div id="forTable"></div>
+
+</body>
+
+</html>

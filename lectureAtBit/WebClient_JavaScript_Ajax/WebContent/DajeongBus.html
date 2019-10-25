@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>경기도 여성안심 택배함 정보 조회</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            sendData_location();
+
+            $("#sel").change(function () {
+                let nm = $(this).val();
+                sendData(nm);
+            })
+        })
+
+        var httpReq = null;
+
+        function getInstance() {
+            if (window.XMLHttpRequest)
+                httpReq = new XMLHttpRequest(); //모든 브라우져 > XMLHttpRequest         
+            else if (window.ActiveXObject)
+                httpReq = new ActiveXObject("Msxml2.XMLHTTP");
+            else
+                throw new Error("AJAX 지원하지 않습니다");
+
+            return httpReq;
+        }
+
+        function sendData_location() {
+            httpReq = getInstance();
+            httpReq.onreadystatechange = HandlerStateChange_location; //(x)
+            httpReq.open("POST",
+                "https://openapi.gg.go.kr/FemailSafetyCustodyBox?Key=a5a71c6d047247aeb1c3d1465192c52b&Type=json&pIndex=1&pSize=1000"
+            );
+            httpReq.send();
+        }
+
+        function HandlerStateChange_location() {
+            if (httpReq.readyState == 4) {
+                if (httpReq.status >= 200 && httpReq.status < 300) {
+                    getLocation(JSON.parse(httpReq.responseText));
+                }
+            }
+        }
+
+        function sendData(nm) {
+            httpReq = getInstance();
+            httpReq.onreadystatechange = HandlerStateChange; //(x)
+            httpReq.open("POST",
+                "https://openapi.gg.go.kr/FemailSafetyCustodyBox?Key=a5a71c6d047247aeb1c3d1465192c52b&Type=json&pIndex=1&pSize=1000&SIGUN_NM=" +
+                nm);
+            httpReq.send();
+        }
+
+        function HandlerStateChange() {
+            if (httpReq.readyState == 4) {
+                if (httpReq.status >= 200 && httpReq.status < 300) {
+                    chagenTable(JSON.parse(httpReq.responseText));
+                }
+            }
+        }
+
+        var tableName = "testTable";
+
+        function chagenTable(target) {
+            if ($('#testTable') != null) {
+                $('#testTable').remove();
+            }
+
+            var target = target.FemailSafetyCustodyBox[1].row;
+
+            var headers = ["시설명", "소재지도로명주소", "칸 개수", "데이터기준일자"];
+            var table = document.createElement("table");
+            table.setAttribute("id", tableName);
+            table.setAttribute("class", "table table-hover");
+            for (var i = 0; i < target.length; i++) {
+
+                var tr = document.createElement("tr");
+                var innerEle = "";
+                var text = "";
+                if (i === 0) {
+                    tr.setAttribute("class", "table-primary");
+                    innerEle = "th";
+                    for (var j = 0; j < headers.length; j++) {
+                        var td = document.createElement(innerEle);
+                        td.innerHTML = headers[j];
+                        tr.appendChild(td);
+                    }
+                    table.appendChild(tr);
+                    document.body.appendChild(table);
+                    tr = document.createElement("tr");
+                }
+                innerEle = "td";
+                var td1 = document.createElement(innerEle);
+                td1.innerHTML = target[i].FACLT_NM;
+                tr.appendChild(td1);
+                var td2 = document.createElement(innerEle);
+                td2.innerHTML = target[i].REFINE_ROADNM_ADDR;
+                tr.appendChild(td2);
+                var td3 = document.createElement(innerEle);
+                td3.innerHTML = target[i].SPACE_CNT_INFO.replace("01/", "소형:").replace("01/", "소형:").replace("02/",
+                        "중형:").replace("03/", "중소형:").replace("04/", "제어부:").replace("05/", "구급함:").replace("+", " & ")
+                    .replace("+", " & ").replace("+", " & ").replace("+", " & ");
+                tr.appendChild(td3);
+                var td4 = document.createElement(innerEle);
+                td4.innerHTML = target[i].DATA_STD_DE;
+                tr.appendChild(td4);
+
+                table.appendChild(tr);
+            }
+
+            $('#forTable').append(table);
+        }
+
+        function getLocation(data) {
+            var row = data.FemailSafetyCustodyBox[1].row;
+            var loactions = [];
+
+            for (var index in row) {
+                var loaction = row[index].SIGUN_NM;
+
+                if (loactions.indexOf(loaction) < 0) {
+                    if (loactions.length == 0) {
+                        var option = document.createElement("option");
+                        option.innerHTML = "선택해주세요";
+                        option.setAttribute("value", "선택해주세요");
+                        document.getElementById("sel").appendChild(option);
+                    }
+
+                    var option = document.createElement("option");
+
+                    option.innerHTML = loaction;
+                    option.setAttribute("value", loaction);
+                    document.getElementById("sel").appendChild(option);
+                    loactions.push(loaction);
+                }
+            }
+
+            $.each(row, function (index, element) {
+                var loaction = element.SIGUN_NM;
+
+                if (loactions.indexOf(location) < 0) {
+                    if (loactions.length == 0) {
+                        var option = document.createElement("option");
+                        option.innerHTML = "선택해주세요";
+                        option.setAttribute("value", "선택해주세요");
+                        document.getElementById("sel").appendChild(option);
+                    }
+
+                    var option = document.createElement("option");
+                    option.innerHTML = loaction;
+                    option.setAttribute("value", loaction);
+                    document.getElementById("sel").appendChild(option);
+                    loactions.push(loaction);
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <select class="form-control" id="sel" name="sel"> </select>
+    <div id="forTable"> </div>
+</body>
+
+</html>
