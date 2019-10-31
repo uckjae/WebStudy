@@ -16,6 +16,9 @@
 	<div id="wrapper">
 		<jsp:include page="/common/left_lee.jsp"></jsp:include>
 		<div id="content-wrapper" class="text-align-center">
+		
+		<!-- footer -->
+			<jsp:include page="/common/footer_lee.jsp"></jsp:include>
 		</div>
 	</div>
 
