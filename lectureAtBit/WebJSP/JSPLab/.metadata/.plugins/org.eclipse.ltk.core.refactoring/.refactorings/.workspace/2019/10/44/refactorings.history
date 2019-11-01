@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;WebJSP2&apos;" deleteContents="false" description="Delete resource &apos;WebJSP2&apos;" element1="/WebJSP2" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1572313297245"/>&#x0A;<refactoring comment="Delete resource &apos;startbootstrap-sb-admin-gh-pages&apos;" deleteContents="true" description="Delete resource &apos;startbootstrap-sb-admin-gh-pages&apos;" element1="/startbootstrap-sb-admin-gh-pages" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1572516653115"/>
+</session>

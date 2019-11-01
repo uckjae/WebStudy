@@ -1,0 +1,3 @@
+INDEX VERSION 1.131
+C:\SmartWeb\Web\WebJSP\JSPLab\WebJSP_JDBC_EL_JSTL_2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3281158359.index
+\WebJSP_EL_JSTL\src

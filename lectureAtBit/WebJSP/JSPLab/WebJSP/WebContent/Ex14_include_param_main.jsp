@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+	String type= request.getParameter("type");
+	String userid= request.getParameter("userid");
+%>    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%= type%><br>
+	<%= userid %><br>
+	<jsp:include page="Ex14_subparam.jsp">
+		<jsp:param value="basketball" name="hobby"/>
+		<jsp:param value="1004" name="pwd"/>
+	</jsp:include>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+/*
+ $.get(URL,data,function(data,status,xhr),dataType)
+  >httpReq.open("GET")
+ */
+ $(function(){
+	 $('#btn').click(function(){
+		 $.get('Ex03_Company.xml',function(data){
+			console.log(data);//가공
+			$('#display').empty();//자식요소 제거
+			console.log($(data).find('Company'));
+			//find() 함수 결과 reture : 배열객체[Company,Company]
+			//$.each()
+			//().each()
+			$(data).find('Company').each(function(){
+				//console.log(this);
+				var entry = $(this);
+				let html = "<div>"+entry.attr('CompanyType')+"</div>";
+				//console.log(html);
+				html+="<div>"+entry.find('CompanyName').text()+"</div>";
+				html+="<div>"+entry.find('CompanyNumber').text()+"</div>";
+				html+="<div>"+entry.find('CompanyAddress').text()+"</div>";
+				html+="<div>"+entry.find('Name').text()+"</div>";
+				$('#display').append(html);
+				
+				//var companyarr = $(data).find('Company');
+				//$.each(companyarr,function(index,obj){});
+			})
+		 });
+	 });
+ });
+</script> 
+<title>Insert title here</title>
+</head>
+<body>
+	<input type="button" id="btn" value="회사소개">
+	<div id="display" style="background-color: gray	">DATA</div>
+</body>
+</html>

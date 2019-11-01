@@ -1,0 +1,16 @@
+<%@page import="kr.or.bit.utils.Singleton_Helper"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	/*
+		1.권한 검사
+		2.id 값 받기
+		3.DB > delete from koreamember where id=?
+		4.이동처리 > 삭제완료시 > 목록페이지로 이동
+	*/
+%>
+ 
+ 
+ 

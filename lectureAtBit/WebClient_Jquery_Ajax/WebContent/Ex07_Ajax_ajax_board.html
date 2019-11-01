@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$.ajax(//parameter json 객체
+				{
+					url:"Ex07_Ajax_board.json",
+					type:"POST",
+					dataType:"text",//서버가 응답하는 데이터의 형식(text(json,script,txt,html),xml)
+					success:function(data){
+						console.log(data);
+						
+						$.each(data,function(index,obj){
+							$("#treedata").append(obj.id+"/"+obj.name+"/"+obj.title+"/"+obj.content);
+						});
+					},
+					error:function(xhr){
+						alert(xhr.status);
+					}					
+				}
+		)
+	});
+</script>
+</head>
+<body>
+	<taable id="treedata" border="1"></taable>
+</body>
+</html>

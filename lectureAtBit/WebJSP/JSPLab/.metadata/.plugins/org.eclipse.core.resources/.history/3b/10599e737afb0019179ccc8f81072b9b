@@ -1,0 +1,45 @@
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	/*
+	회원가입 처리 페이지 (디자인필요없다)
+	1.한글처리
+	2.데이터 받기(request)
+	3.데이터 확인하기
+	4.로직처리(비지니스 로직)
+	회원가입 -> 데이터 받아서 -> DB 연결 -> insert -> 유무 -> Client 전달
+	
+	Insert 성공 > 회원가입 > 페이지 이동 > 로그인 화면(로그인 요구)
+	이동 : java: response.sedRedirect(""), javaScript: location.href=""
+	>>클라이언트가 서버에게 페이지를 재요청
+	>>https://cafe.naver.com/bitsmartweb/697
+	
+	Insert 실패 > 경고창 >회원가입 이동
+	>> <script>alert()</script>
+	
+	DB:
+		id,pwd,name,age,gender,email,ip
+		ip... request.getRemoteAddr()
+		
+	*/
+	request.setCharacterEncoding("UTF-8");
+	
+	String id = request.getParameter("id");
+	String pwd = request.getParameter("pwd");
+	String name = request.getParameter("mname");
+	int age = Integer.parseInt(request.getParameter("age"));
+	String gender = request.getParameter("gender");
+	String email = request.getParameter("email");
+	
+%>
+
+
+
+
+
+
+
+

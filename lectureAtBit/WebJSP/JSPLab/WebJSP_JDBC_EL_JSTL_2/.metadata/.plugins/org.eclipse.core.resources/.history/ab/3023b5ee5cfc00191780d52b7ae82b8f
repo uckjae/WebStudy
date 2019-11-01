@@ -1,0 +1,32 @@
+<%@page import="kr.or.bit.commons.Member"%>
+<%@page import="java.util.HashMap"%>
+\
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%
+	Member e = new Member();
+	e.setEmpno(2000);
+	e.setEname("bituser");
+	
+	HashMap<String,String> hp = new HashMap<>();
+	hp.put("data", "1004");
+%>    
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+
+</html>
+
+
+
+
+
+
