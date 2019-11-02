@@ -8,19 +8,19 @@
         </a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link" href="#" id="pagesDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link" href="login_lee.jsp" id="pagesDropdown" role="button"  aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
           <span>Login</span>
         </a>
         
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="JoinForm_lee.jsp">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Register</span></a>
       </li>
       <%
-      if(session.getAttribute("userid") == null || !session.getAttribute("userid").equals("admin") ){
+      if(!(session.getAttribute("userid") == null) && session.getAttribute("userid").equals("admin") ){
       %>
       <li class="nav-item">
         <a class="nav-link" href="#">

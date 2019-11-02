@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="/common/head.jsp"></jsp:include>
+<jsp:include page="/common/head_lee.jsp"></jsp:include>
 <title>LogIn Page</title>
 </head>
 <body>

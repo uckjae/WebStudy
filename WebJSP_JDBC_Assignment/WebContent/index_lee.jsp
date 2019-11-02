@@ -14,6 +14,7 @@
 		<jsp:include page="/common/left_lee.jsp"></jsp:include>
 		<div id="content-wrapper" class="text-align-center">
 			<!-- MAIN PAGE CONTENT  -->
+			<div class="card-body">
 			<%
 				String id=null;
 				id = (String)session.getAttribute("userid");
@@ -29,7 +30,7 @@
 					out.print("사이트 방문을 환영합니다^^ <br>회원가입 좀 하지...");
 				}
 			%>
-		
+			</div>
 			<!-- footer -->
 			<jsp:include page="/common/footer_lee.jsp"></jsp:include>	
 		</div>

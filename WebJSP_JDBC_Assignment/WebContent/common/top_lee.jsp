@@ -20,16 +20,27 @@
   
       </li>
       <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-           Longin(링크먹여야함)
+        <a class="nav-link dropdown-toggle" href="login_lee.jsp" id="messagesDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+           Longin
         </a>
       </li>
       <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          Register(링크 먹여야함)
+        <a class="nav-link dropdown-toggle" href="JoinForm_lee.jsp" id="userDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          Register
         </a>
         
       </li>
+      <%
+	if(session.getAttribute("userid") !=null){
+		out.print("<li class='nav-item dropdown no-arrow'><a class='nav-link dropdown-toggle' href='logOut_lee.jsp' role='button' aria-haspopup='true' aria-expanded='false'>"
+		+session.getAttribute("userid")+"로그아웃하기"+"</a></li> ");
+		
+	}else{
+		out.print("<li class='nav-item dropdown no-arrow'><a class='nav-link dropdown-toggle' href='login_lee.jsp' role='button' aria-haspopup='true' aria-expanded='false'>"
+				+"로그인하기"+"</a></li> ");
+	}
+
+%>
     </ul>
 
   </nav>

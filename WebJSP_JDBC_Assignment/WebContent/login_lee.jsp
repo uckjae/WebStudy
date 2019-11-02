@@ -20,19 +20,19 @@
 		<jsp:include page="/common/left_lee.jsp"></jsp:include>
 		<div class="container" style="text-align: center; padding-top: 2em;">Login
 		<div id="content-wrapper" class="text-align-center">
-			<form>
+			<form action="loginOk_lee.jsp">
 				<div class="form-group">
 					<div class="form-label-group">
 						<input type="text" name="id" id="id" class="form-control" placeholder="ID"
-							required="required" autofocus="autofocus">
-						<label for="inputId">ID</label>
+							required="required" >
+						<label for="id">ID</label>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="form-label-group">
 						<input type="password" id="pwd" name="pwd" class="form-control" placeholder="Password"
 							required="required">
-						<label for="inputPassword">Password</label>
+						<label for="pwd">Password</label>
 					</div>
 				</div>
 				
