@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$.ajax({
+			url:"Ex10_jsonlib_emplist.jsp",
+			dataType:"json",
+			type:"POST",
+			success:function(data){
+				console.log(data);
+				$("body").append(data);
+			}
+		});
+	});
+
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+jquery 비동기 함수 $.ajax 함수를 사용 :Ex10_jsonlib_emplist.jsp 요청주소
+받은 데이터 출력
+-->
+
+
+</body>
+</html>

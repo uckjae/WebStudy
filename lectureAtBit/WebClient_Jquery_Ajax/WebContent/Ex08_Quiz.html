@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<title>Insert title here</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script type="text/javascript">
+
+      $(function(){
+    	  $(".table").hide();
+    	  $.ajax({
+    	  	url:"https://openapi.gg.go.kr/FemailSafetyCustodyBox?Key=a5a71c6d047247aeb1c3d1465192c52b&Type=json&pIndex=1&pSize=1000",
+    		dataType:"json",
+    		type:"POST",
+    		success:function(data){
+    			var siguns = [];
+    			$(data.FemailSafetyCustodyBox[1].row).each(function(index,element){
+    				//console.log(element.SIGUN_NM);
+    				var thissigun = element.SIGUN_NM;
+    				if(((siguns).indexOf(thissigun))<0){
+    					siguns.push(thissigun);
+    					$('#box').append($("<option>"+thissigun+"</option>"));
+    				}
+    			});
+    			//$('#box').append($("<option>"))
+    			
+    		}
+    	  });
+    	  
+    	  $('#box').change(function() {
+    		$(".table").show();
+    		$("#default").remove();
+    	  	var sigun = $('#box').val();
+    	  	var apiurl = "https://openapi.gg.go.kr/FemailSafetyCustodyBox?Key=a5a71c6d047247aeb1c3d1465192c52b&Type=json&pIndex=1&pSize=1000" ;
+    	  	//console.log(apiurl);
+    	  	$.ajax({
+    	  		url: apiurl,
+    	  		data:{SIGUN_NM:sigun},
+    	  		dataType : "json",
+    	  		type:"GET",
+    	  		success:function(data){
+    	  			document.getElementById("txtdata").innerHTML="";
+    		        var row = data.FemailSafetyCustodyBox[1].row;
+    	            for (var index in row){   
+
+    	             document.getElementById("txtdata").innerHTML += "<tr><td>" + row[index].FACLT_NM+"</td><td>"
+    	             +row[index].REFINE_ROADNM_ADDR+"</td><td>"+row[index].SPACE_CNT_INFO.replace("01/", "소형:").replace("01/", "소형:").replace("02/", "중형:").replace("03/","중소형:").replace("04/","제어부:").replace("05/","구급함:").replace("+"," & ").replace("+"," & ").replace("+"," & ").replace("+"," & ") 
+    	             +"</td><td>"+row[index].DATA_STD_DE + "</td></tr>";
+    	            }
+    	  			
+    	  		},
+    	  		error:function(){
+    	  			alert('에러가난다')
+    	  		}
+    	  	});
+    	  });
+      });
+      
+   </script>
+</head>
+<body>
+<h3>택배 검색하기</h3>
+<!-- <button onclick="sendData()">검색하기</button> -->
+<select name="box" id="box">
+<option value="0000" id="default">지역 선택하기</option>
+
+</select>
+
+<table class="table table-bordered table-hover">
+<thead class="table-primary">
+<tr>
+<th>시설명</th>
+<th>소재지도로명주소</th>
+<th>칸개수</th>
+<th>데이터기준일자</th>
+</tr>
+<tbody id="txtdata" >
+
+</tbody>
+</table>
+</body>
+</html>

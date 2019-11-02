@@ -1,0 +1,21 @@
+INDEX VERSION 1.131
+C:\SmartWeb\Web\WebJSP\JSPLab\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2756209637.index
+\WebJSP\src
+C:\SmartWeb\Web\WebJSP\JSPLab\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\510813400.index
+\WebJSP\src
+C:\SmartWeb\Web\WebJSP\JSPLab\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\73425782.index
+\WebJSP_JDBC\src
+C:\SmartWeb\Web\WebJSP\JSPLab\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2286319862.index
+\JSTL\src
+C:\SmartWeb\Web\WebJSP\JSPLab\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3411658878.index
+\WebJSP_JDBC_Assignment\src
+C:\SmartWeb\Web\WebJSP\JSPLab\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1291141871.index
+\WebJSP_JDBC_Assignment\src
+C:\SmartWeb\Web\WebJSP\JSPLab\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2677732081.index
+\WebJSP_JDBC_EL_JSTL\src
+C:\SmartWeb\Web\WebJSP\JSPLab\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\907998579.index
+\WebJSP\src
+C:\SmartWeb\Web\WebJSP\JSPLab\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\778382115.index
+\WebJSP2\src
+C:\SmartWeb\Web\WebJSP\JSPLab\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1472424594.index
+\WebJSP_JDBC\src

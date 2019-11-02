@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		/*
+		jQuery.getJSON( url [, data ] [, success ] )
+		Default : dataType : "json"
+		
+		[url]
+		Type: String
+		A string containing the URL to which the request is sent.
+		[data]
+		Type: PlainObject or String
+		A plain object or string that is sent to the server with the request.
+		[success]
+		Type: Function( PlainObject data, String textStatus, jqXHR jqXHR )
+		A callback function that is executed if the request succeeds.
+		*/
+		$(function(){
+			$('#btn .btnload').click(function(){
+				//jQuery.getJSON( url [, data ] [, success ] )
+				$.getJSON("Ex05_json.json", function(jsondata) {
+					//console.log(jsondata);
+					//테이블을 만들고 서버에서 받은 데이터를 Table의 td에 넣어서
+					//display에 append 하세요
+					/* var table = document.createElement("table");
+					table.setAttribute("border", 1);
+					console.log(table); */
+					var table =$("<table border='1'></table>");
+					$(jsondata).each(function(i, element) {
+						//console.log(element);
+						var tr = "<tr><td>"+element.num+"</td><td>"+element.Name+"</td></tr>";
+						//console.log(tr);
+						table.append(tr);
+						//$(table).append(tr);
+						console.log(table);
+					});
+					
+					console.log(table);
+					$("#display").append(table);
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="btn">
+		<div class="btnload">JSON DATA LOAD</div>
+	</div>
+	<div id="display"></div>
+</body>
+</html>

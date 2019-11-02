@@ -1,0 +1,4 @@
+
+10월 28, 2019 09:59:24.63 NEW SESSION
+10월 28, 2019 09:59:24.63 [1636:11244:1028/095924.631:ERROR:CONSOLE(2073)] "Uncaught ReferenceError: cr is not defined", source: chrome://apps/ (2073)
+10월 28, 2019 09:59:24.79 [1636:11244:1028/095924.797:ERROR:CONSOLE(10893)] "Uncaught TypeError: Cannot read property 'getUrlForCss' of undefined", source: chrome://apps/ (10893)

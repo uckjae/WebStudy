@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+/*
+	WAS: 여러개의 웹 어플리케이션을 서비스할 수 있다
+	WAS 안에 WebJSP 프로젝트(어플리케이션)
+
+*/
+%>    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

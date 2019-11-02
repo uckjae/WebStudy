@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>경기도 여성안심 택배함 정보 조회</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style type="text/css">
+        .wrap-loading {
+            /*화면 전체를 어둡게 합니다.*/
+
+            position: fixed;
+
+            left: 0;
+
+            right: 0;
+
+            top: 0;
+
+            bottom: 0;
+
+            background: rgba(0, 0, 0, 0.2);
+            /*not in ie */
+
+            filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#20000000', endColorstr='#20000000');
+            /* ie */
+
+
+
+        }
+
+        .wrap-loading div {
+            /*로딩 이미지*/
+
+            position: fixed;
+
+            top: 50%;
+
+            left: 50%;
+
+            margin-left: -21px;
+
+            margin-top: -21px;
+
+        }
+
+        .display-none {
+            /*감추기*/
+
+            display: none;
+
+        }
+    </style>
+    <script type="text/javascript">
+
+        $(function () {
+            setLocationList();
+
+            $("#sel").change(function () {
+
+                if ($("#testTable") != null)
+                    $("#testTable").remove();
+
+                let nm = $(this).val();
+                if (nm == "선택해주세요")
+                    return;
+                setTableDatas(nm);
+            })
+        })
+
+        let openaipUrl =
+            "https://openapi.gg.go.kr/FemailSafetyCustodyBox?Key=a5a71c6d047247aeb1c3d1465192c52b&Type=json&pIndex=1&pSize=1000";
+
+        function setLocationList() {
+            $.ajax({
+                url: openaipUrl,
+                type: "POST",
+                dataType: "json",
+                success: function (data) {
+                    getLocation(data)
+                },
+                error:function(xhr){
+                   alert("ERROR : "+xhr.status)
+                }
+            });
+        }
+
+        function setTableDatas(nm) {
+            $.ajax({
+                url: openaipUrl,
+                data: {
+                    SIGUN_NM: nm
+                },
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    chagenTable(data)
+                },
+                error:function(xhr){
+                   alert("ERROR : "+xhr.status)
+                },
+                beforeSend: function () {
+                    $('.wrap-loading').removeClass('display-none');
+                    $('#forTable').addClass('display-none'); // for test
+                },
+                complete: function () {
+                   setTimeout(function() { // for test
+                       $('.wrap-loading').addClass('display-none');
+                       $('#forTable').removeClass('display-none');
+                   }, 1000);
+                }
+            });
+        }
+
+        function chagenTable(data) {
+            let target = data.FemailSafetyCustodyBox[1].row;
+            
+            let headers = ["시설명", "소재지도로명주소", "칸 개수", "데이터기준일자"];
+            let table = $("<table></table>");
+            table.attr("id", "testTable");
+            table.attr("class", "table table-hover");
+            for (let i = 0; i < target.length; i++) {
+                if (i === 0) {
+                    let row= $("<tr><th>시설명</th><th>소재지도로명주소</th><th>칸 개수</th><th>데이터기준일자</th><tr>");
+                    row.attr("class", "table-primary");
+                    table.append(row);
+                }
+
+                let row= $("<tr><td>" + target[i].FACLT_NM+"</td><td>"
+                +target[i].REFINE_ROADNM_ADDR+"</td><td>"+target[i].SPACE_CNT_INFO 
+                +"</td><td>"+target[i].DATA_STD_DE + "</td></tr>");
+                console.log(row);
+
+                table.append(row);
+            }
+
+            $('#forTable').append(table);
+        }
+
+        function getLocation(data) {
+            let row = data.FemailSafetyCustodyBox[1].row;
+            let loactions = [];
+
+            for (let index in row) {
+                let loaction = row[index].SIGUN_NM;
+
+                if (loactions.indexOf(loaction) < 0) {
+                    if (loactions.length == 0) {
+                        let option = $("<option></option>");
+                        option.html("선택해주세요");
+                        option.attr("value", "선택해주세요");
+                        $("#sel").append(option);
+                    }
+
+                    let option = $("<option>"+loaction+"</option>");
+                    option.attr("value", loaction).appendTo("#sel");
+                    loactions.push(loaction);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <select class="form-control" id="sel" name="sel">
+    </select>
+    <div id="forTable"></div>
+    
+    <div class="wrap-loading display-none">
+        <div><img src="./images/blue-loader.gif" /></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="Ex20_LoginOk.jsp" method="get">
+		ID:<input type="text" name="uid"><br>
+		PWD:<input type="password" name="pwd"><br>
+		<hr>
+		ID값 유지하기<input type="checkbox" name="chk">
+		<hr>
+		<input type="submit" value="로그인"> 
+		<input type="reset" value="로그인"> 
+	</form>
+</body>
+</html>
