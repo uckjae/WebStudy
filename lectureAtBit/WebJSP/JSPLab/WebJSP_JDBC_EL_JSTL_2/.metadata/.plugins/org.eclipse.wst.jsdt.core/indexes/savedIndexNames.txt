@@ -1,8 +1,0 @@
-INDEX VERSION 1.4+C:\SmartWeb\Web\WebJSP\JSPLab\WebJSP_JDBC_EL_JSTL_2\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-3281158359.index
-4267187458.index
-3944408114.index
-2136907821.index
-2189245621.index
-1794004757.index
-3034441194.index
